@@ -59,6 +59,7 @@ $ npm run test:cov
 ```
 ## Reference
 - https://www.codemag.com/Article/1907081/Nest.js-Step-by-Step
+- https://www.joshmorony.com/using-providers-and-http-requests-in-a-nestjs-backend/
 
 ## Gennerate 
 ```bash

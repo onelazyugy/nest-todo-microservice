@@ -1,9 +1,9 @@
-import { Controller, Get } from '@nestjs/common';
-import { Observable } from 'rxjs';
+import { Controller, Get, UseFilters } from '@nestjs/common';
+import { AllExceptionsFilter } from 'src/all-exceptions-filter';
 import { TodoDto } from './dto/todo.dto';
 import { TodoService } from './todo.service';
 
-@Controller('/api')
+@Controller()
 export class TodoController {
     constructor(private todoService: TodoService) {}
 
@@ -12,10 +12,15 @@ export class TodoController {
         return 'up!';
     }
 
-    @Get('/todo')
+    @Get('/api/todo')
     fetchTodos(): TodoDto[] {
         const todos: TodoDto[] = this.todoService.fetchTodos();
         return todos;
+    }
+
+    @Get('/api/exception')
+    throwException() {
+        this.todoService.throwException()
     }
 
 }
