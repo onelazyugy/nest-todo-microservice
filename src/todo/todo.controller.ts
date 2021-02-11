@@ -1,5 +1,6 @@
-import { Controller, Get, UseFilters } from '@nestjs/common';
+import { Controller, Get, UseFilters, UseInterceptors } from '@nestjs/common';
 import { AllExceptionsFilter } from 'src/all-exceptions-filter';
+import { LoggingInterceptor } from 'src/logging.interceptor';
 import { TodoDto } from './dto/todo.dto';
 import { TodoService } from './todo.service';
 
