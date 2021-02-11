@@ -7,12 +7,15 @@ import { TodoDto } from './dto/todo.dto';
 export class TodoService {
     constructor(private httpClient: HttpService){}
 
-    fetchTodos() : Observable<any> {
-        return this.httpClient.get('https://jsonplaceholder.typicode.com/todos').pipe(
-            tap(r => {
-                console.log('GET response: ', r.data),
-                switchMap(r => r as Observable<any>)
-            })
+    fetchTodos(): TodoDto[] {
+        const $todos: any = this.httpClient.get('https://jsonplaceholder.typicode.com/todos').pipe(
+            map(r => r.data)
         );
+        $todos.subscribe(r => {
+            console.log("data: ", r);
+        })
+        return $todos;
     }
+
+
 }

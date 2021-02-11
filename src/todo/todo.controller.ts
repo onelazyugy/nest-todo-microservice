@@ -13,8 +13,9 @@ export class TodoController {
     }
 
     @Get('/todo')
-    fetchTodos(): Observable<TodoDto> {
-        return this.todoService.fetchTodos();
+    fetchTodos(): TodoDto[] {
+        const todos: TodoDto[] = this.todoService.fetchTodos();
+        return todos;
     }
 
 }
